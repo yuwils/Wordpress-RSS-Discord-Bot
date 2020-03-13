@@ -12,7 +12,7 @@ List of feeds to scrape separated by comma
 
 Required:
 
-JDK 8
+JDK 8+
 
 https://github.com/DV8FromTheWorld/JDA JDA wrapper for Discord
 
