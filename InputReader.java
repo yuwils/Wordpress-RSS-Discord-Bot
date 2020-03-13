@@ -16,7 +16,6 @@ public class InputReader {
         String botToken = inputScanner.nextLine();
 
         return botToken;
-
     }
 
     /**
