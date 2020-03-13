@@ -8,7 +8,7 @@ Discord Bot Token
 
 Discord Channel ID
 
-List of feeds to scrape seperated by comma
+List of feeds to scrape separated by comma
 
 Required:
 
