@@ -14,11 +14,9 @@ import java.util.concurrent.TimeUnit;
 public class DiscordBot extends ListenerAdapter {
     public static void main(String[] args) throws Exception {
         String token = InputReader.returnToken();
-
         JDA api = new JDABuilder(token)
                 .addEventListeners(new DiscordBot())
                 .build();
-
         Runnable helloRunnable = new Runnable() {
 
             Long channelid = InputReader.returnChannelID();
@@ -37,16 +35,12 @@ public class DiscordBot extends ListenerAdapter {
 
                 for (int i = 0; i < URLAddresses.length; i++) {
                     String latestLink = MessageData.readRSS(URLAddresses[i]);
-
                     if (!latestLink.equals(previousLink[i])) {
                         previousLink[i] = latestLink;
-
                         if (isFirst) {
                             continue;
-
                         } else if (isFirst && i == URLAddresses.length - 1) {
                             isFirst = false;
-
                         } else {
                             channel.sendMessage("<" + latestLink + ">" + " @everyone").queue();
                         }
@@ -57,7 +51,6 @@ public class DiscordBot extends ListenerAdapter {
 
         //Schedules webscraper to run periodically
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-
         //Initial delay prevents blocking from bot initialisation
         executor.scheduleAtFixedRate(helloRunnable, 10, 60, TimeUnit.SECONDS);
     }
